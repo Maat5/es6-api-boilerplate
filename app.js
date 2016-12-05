@@ -35,8 +35,8 @@ i18n.configure({
   updateFiles: false,
   register: global,
   api: {
-    '__': 'trans',
-    '__n': 'transn'
+    '__': 'ts',
+    '__n': 'tsn'
   }
 });
 
