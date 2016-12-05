@@ -9,3 +9,22 @@ module.exports = router;
  */
 router.get('/', UserController.getUsers);
 
+/**
+ * Find single user  profile
+ */
+router.get('/:userId', UserController.findUser);
+
+/**
+ *  Create user profile
+ */
+router.post('/', UserController.createUser);
+
+/**
+ * Update user profile
+ */
+router.put('/:userId', UserController.updateUser);
+
+/**
+ * Delete User profile
+ */
+router.delete('/:userId', UserController.deleteUser);

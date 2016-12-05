@@ -15,16 +15,7 @@ const userSchema = new Schema({
   isActiveted: { type: Boolean, default: false },
   isBanned: { type: Boolean, default: false },
   sessionToken: { type: String },
-  phone: {
-    countryCode: String,
-    number: String
-  },
-  avatar: {
-    original: String,
-    thumb: String,
-    format: { type: String, enum: ['jpg', 'jpeg', 'png'] }
-  },
-
+  avatar: { type: String }
 }, {
   toObject: {
     virtuals: true
@@ -34,7 +25,7 @@ const userSchema = new Schema({
 
 // generating a hash
 userSchema.methods.generateHash = (password) => {
-  return passwordHash.hashSync(password, bcrypt.genSaltSync(8), null);
+  return passwordHash.hashSync(password, passwordHash.genSaltSync(8), null);
 };
 
 // checking if password is valid
