@@ -30,7 +30,7 @@ app.disable('x-powered-by');
 // Set langs setting
 i18n.configure({
   locales: ['en', 'es'],
-  directory: __dirname + '/app/locals/',
+  directory: __dirname + '/server/locals/',
   objectNotation: true,
   updateFiles: false,
   register: global,
@@ -54,6 +54,9 @@ app.use(session({
   rolling: true,
   // store: new MongoStore({ mongooseConnection: mongoose.connection, autoRemove: 'native' })
 }));
+
+// App router
+let Router = require('./server/router')(app);
 
 app.listen(config.port, () => {
   console.log(`server started on http://localhost:${config.port}`);
